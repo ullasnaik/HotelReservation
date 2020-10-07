@@ -13,7 +13,7 @@ public interface RoomService {
 	List<Room> getAllRooms();
 
 	Room updateRoom(Room room);
-	
+
 	List<Room> findByRoomType(String roomType);
 
 }

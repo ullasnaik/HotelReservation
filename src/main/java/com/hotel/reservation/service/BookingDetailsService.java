@@ -1,8 +1,10 @@
 package com.hotel.reservation.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hotel.reservation.model.BookingDetails;
+import com.hotel.reservation.model.Room;
 
 public interface BookingDetailsService {
 
@@ -14,4 +16,7 @@ public interface BookingDetailsService {
 
 	BookingDetails updateBookingDetails(BookingDetails bookingDetails);
 
+	List<Room> availableRooms(Date bookingDate, String roomType);
+
+	List<BookingDetails> findbyUserId(Long userId);
 }

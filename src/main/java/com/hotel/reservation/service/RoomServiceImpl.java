@@ -2,6 +2,8 @@ package com.hotel.reservation.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class RoomServiceImpl implements RoomService {
 	private RoomRepository repository;
 
 	@Override
+	@Transactional
 	public Room findRoom(Long id) {
 		return repository.findById(id).get();
 	}
@@ -25,6 +28,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
+	@Transactional
 	public List<Room> getAllRooms() {
 		return repository.findAll();
 	}
@@ -35,6 +39,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
+	@Transactional
 	public List<Room> findByRoomType(String roomType) {
 		return repository.findByRoomType(roomType);
 	}

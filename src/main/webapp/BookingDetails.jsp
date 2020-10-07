@@ -16,12 +16,6 @@ td, th {
 			document.forms["bookingDetails"]["datepicker"].focus();
 			return false;
 		}
-		if (document.forms["bookingDetails"]["datepicker"].value == "") {
-			alert("Please enter blood group");
-			document.forms["bookingDetails"]["datepicker"].focus();
-			return false;
-		}
-
 	}
 </script>
 
@@ -41,18 +35,6 @@ td, th {
 		$("#datepicker").datepicker();
 	});
 </script>
-<script>
-	$(function() {
-		$.datepicker.setDefaults({
-			onClose : function(date, inst) {
-				$("#selectedDtaeVal").html(date);
-			}
-		});
-
-		$("#datepicker1").datepicker();
-		
-	});
-</script>
 </head>
 <body style="background-color: #FFFFE0;">
 	<div style="margin-top: 50px; margin-left: 250px; height: 50px;">
@@ -69,15 +51,8 @@ td, th {
 				<td><form:hidden path="user.id" /></td>
 			</tr>
 			<tr>
-				<td><form:hidden path="numOfDays" /></td>
-			</tr>
-			<tr>
-				<td>Check In Date :</td>
-				<td><form:input path="checkInDate" id="datepicker" /></td>
-			</tr>
-			<tr>
-				<td>Check Out Date :</td>
-				<td><form:input path="checkOutDate" id="datepicker1" /></td>
+				<td>Booking Date :</td>
+				<td><form:input path="bookingDate" id="datepicker" /></td>
 			</tr>
 			<tr>
 				<td>Room Type</td>
