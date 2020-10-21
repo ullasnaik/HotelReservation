@@ -19,4 +19,6 @@ public interface BookingDetailsService {
 	List<Room> availableRooms(Date bookingDate, String roomType);
 
 	List<BookingDetails> findbyUserId(Long userId);
+
+	List<BookingDetails> findbyBookingDate(Date bookingDate);
 }

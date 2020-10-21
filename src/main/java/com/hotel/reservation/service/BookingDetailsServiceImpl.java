@@ -65,4 +65,9 @@ public class BookingDetailsServiceImpl implements BookingDetailsService {
 		return repository.findbyUserId(userId);
 	}
 
+	@Override
+	public List<BookingDetails> findbyBookingDate(Date bookingDate) {
+		return repository.findbyBookingDate(bookingDate);
+	}
+
 }

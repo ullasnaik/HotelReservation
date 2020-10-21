@@ -50,7 +50,7 @@ td, th {
 <body style="background-color: #FFFFE0;">
 	<h2 align="center">
 		Welcome
-		<c:out value="${hotelDTO.user.firstName }" />
+		<c:out value="${hotelDTO.user.firstName }  ${hotelDTO.user.lastName }" />
 	</h2>
 	<form:form method="POST" modelAttribute="hotelDTO" action="/UserAction"
 		name="hotelDTO">
@@ -76,53 +76,24 @@ td, th {
 						pattern="MM/dd/yyyy" var="myDate" /> <form:input
 						path="bookingDate" id="datepicker1" value="${myDate}" /></td>
 				<td><input type="submit"
-					value="<c:out value="Check Availability" />"></td>
+					value="<c:out value="Check Booking Status" />"></td>
 			</tr>
 			<tr>
 			</tr>
 		</table>
 	</form:form>
-	<form:form method="POST" modelAttribute="hotelDTO" action="/UserAction"
-		name="bookingDetails">
-		<table style="margin-left: auto; margin-right: auto;">
-			<tr>
-				<td><form:hidden path="user" /></td>
-				<td><form:input type="hidden" path="userAction" value="BOOK" />
-				</td>
-			</tr>
-			<tr>
-				<td>Book A Room :</td>
-				<td>Booking Date :</td>
-				<td><fmt:formatDate
-						value="${hotelDTO.bookingDetails.bookingDate}"
-						pattern="MM/dd/yyyy" var="myDate1" /> <form:input
-						path="bookingDetails.bookingDate" id="datepicker"
-						value="${myDate1}" /></td>
 
-				<td>Room Type</td>
-				<td><form:select path="bookingDetails.roomType">
-						<form:option value="NONE" label="--- Select ---" />
-						<form:option value="SINGLE_BED" label="SINGLE_BED" />
-						<form:option value="DOUBLE_BED" label="DOUBLE_BED" />
-						<form:option value="THREE_BED" label="THREE_BED" />
-					</form:select></td>
-				<td colspan="2"><input type="submit"
-					value="<c:out value="Book" />" onclick="return validate();">
-				</td>
-			</tr>
-
-		</table>
-	</form:form>
-
-	<h2 align="center">Booking History</h2>
+	<h2 align="center">Booking Info</h2>
 	<table style="margin-left: auto; margin-right: auto; border: 1">
 		<tr>
 			<th>Booking Id</th>
 			<th>Booking Date</th>
 			<th>Room Type</th>
 			<th>Room Number</th>
+			<th>Customer Name</th>
+			<th>Customer Contact Number</th>
+			<th>Customer Address</th>
 			<th>Booking Status</th>
-			<th>Action</th>
 		</tr>
 		<c:forEach items="${hotelDTO.bookingList}" var="booking">
 			<form:form method="POST" modelAttribute="hotelDTO"
@@ -139,9 +110,11 @@ td, th {
 						${myDate2}</td>
 					<td width="60" align="center">${booking.roomType}</td>
 					<td width="60" align="center">${booking.room.roomNum}</td>
+					<td width="60" align="center">${booking.user.firstName}&nbsp
+						&nbsp ${booking.user.lastName}</td>
+					<td width="60" align="center">${booking.user.contactNumber}</td>
+					<td width="60" align="center">${booking.user.address}</td>
 					<td width="60" align="center">${booking.status}</td>
-					<td colspan="2"><input type="submit"
-						value="<c:out value="Cancel" />"></td>
 				</tr>
 			</form:form>
 		</c:forEach>

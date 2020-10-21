@@ -50,7 +50,8 @@ td, th {
 <body style="background-color: #FFFFE0;">
 	<h2 align="center">
 		Welcome
-		<c:out value="${hotelDTO.user.firstName }" />
+		<c:out
+			value="${hotelDTO.user.firstName} ${hotelDTO.user.lastName }" />
 	</h2>
 	<form:form method="POST" modelAttribute="hotelDTO" action="/UserAction"
 		name="hotelDTO">

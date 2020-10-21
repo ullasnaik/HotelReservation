@@ -16,4 +16,7 @@ public interface BookingDetailsRepository extends JpaRepository<BookingDetails, 
 
 	@Query(value = "SELECT * FROM BOOK_DETAILS where USER_ID = :userId ", nativeQuery = true)
 	public List<BookingDetails> findbyUserId(@Param("userId") Long userId);
+
+	@Query(value = "SELECT * FROM BOOK_DETAILS WHERE BOOKING_DATE= :bookingDate ", nativeQuery = true)
+	public List<BookingDetails> findbyBookingDate(@Param("bookingDate") Date bookingDate);
 }

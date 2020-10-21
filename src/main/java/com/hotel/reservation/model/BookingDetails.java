@@ -25,7 +25,7 @@ public class BookingDetails implements Serializable {
 	private String status;
 	private Date bookingDate;
 	private String roomType;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "User_Id", nullable = false)
 	private User user;
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)

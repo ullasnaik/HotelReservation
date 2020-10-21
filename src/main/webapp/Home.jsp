@@ -6,9 +6,9 @@
 <title>Login</title>
 <style>
 td, th {
-  font-family: arial, sans-serif;
+	font-family: arial, sans-serif;
 }
-</style> 
+</style>
 <script type="text/javascript">
 	function validate() {
 		if (document.forms["user"]["id"].value == "") {
@@ -28,13 +28,11 @@ td, th {
 </head>
 <body style="background-color: #FFFFE0;">
 	<div style="margin-top: 50px; margin-left: 250px; height: 50px;">
-		<h2 align="center">
-			Identify Yourself
-		</h2>
+		<h2 align="center">Identify Yourself</h2>
 	</div>
 	<form:form method="POST" modelAttribute="user" action="/UserHome"
 		name="user">
-		<table  style="margin-left: auto; margin-right: auto;">
+		<table style="margin-left: auto; margin-right: auto;">
 
 			<tr>
 				<td>User Id :</td>
@@ -51,7 +49,7 @@ td, th {
 			<tr>
 				<td colspan="2"><input type="submit"
 					value="<c:out value="Login" />" onclick="return validate();">
-					<a href="/registration">Registration</a></td>
+					<a href="/UserRegistration">Registration</a></td>
 			</tr>
 		</table>
 	</form:form>
